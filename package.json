@@ -1,0 +1,10 @@
+{
+  "name": "home_theatre",
+  "version": "0.1.0",
+  "devDependencies": {
+  	"express": "3.x",
+  	"nodemon": "1.0.x",
+  	"roku": "0.2.x",
+  	"node-ssdp" : "0.2.x"
+  }
+}
