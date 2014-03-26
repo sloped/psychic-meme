@@ -35,5 +35,25 @@ power.off = function( req, res ) {
 	});
 
 }
+power.status = function( req, res ) {
+
+	child = exec("onkyo -t 192.168.2.147 system-power:query", function (error, stdout, stderr) {
+		var power_status = 'off';
+		if(stdout.indexOf("'system-power', 'on'") !== -1) {
+			power_status = 'on';
+		}
+
+		var response = {
+			status : 'ok',
+			system_status : power_status,
+		}
+		if (error !== null) {
+			response.status = 'error';
+			response.error = stderr;
+		}
+		res.send(response);
+	});
+
+}
 
 module.exports = power;

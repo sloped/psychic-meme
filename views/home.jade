@@ -1,0 +1,22 @@
+doctype html
+html(lang="en", ng-app="homeTheatreApp")
+  head
+    title= title
+    link(rel="stylesheet", href="/css/main.css")
+    script(src='js/libs/angular.js')
+    script(src='js/main.js')
+    
+  body
+    header
+      h1 Theatre Control
+    .col(ng-controller="PowerCtrl")
+      div(ng-switch on="status")
+        button(ng-switch-when="on" ng-click="power_off(  )") Turn Off
+        button(ng-switch-when="off" ng-click="power_on(  )") Turn On
+    .col(ng-controller="InputsCtrl")
+      h2 What do you want to do?
+      .message {{ message }}
+      ul
+        li(ng-repeat="input in inputs")
+          button(ng-click="get(  )") {{input.name}}
+   
